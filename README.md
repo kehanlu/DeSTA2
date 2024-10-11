@@ -6,7 +6,7 @@
 
 > Ke-Han Lu, Zhehuai Chen, Szu-Wei Fu, Chao-Han Huck Yang, Jagadeesh Balam, Boris Ginsburg, Yu-Chiang Frank Wang, Hung-yi Lee
 
-This paper introduces DeSTA2, a novel approach for developing instruction-following speech language models (SLMs) without relying on speech instruction-tuning data. By leveraging text-based large language models to generate speech-text pairs from rich metadata, DeSTA2 achieves impressive performance on speech understanding benchmarks while retaining advanced reasoning capabilities. This work demonstrates a more efficient path towards versatile SLMs, challenging the need for extensive annotated datasets in speech AI development.
+This paper introduces DeSTA2, a novel approach for developing instruction-following speech language models (SLMs) without relying on speech instruction-tuning data. By leveraging text-based large language models to generate speech-text pairs from rich metadata, DeSTA2 achieves impressive performance on speech understanding benchmarks while retaining advanced reasoning capabilities.
 
 
 ## ✨ News
@@ -121,7 +121,7 @@ print(response)
 ```
 
 **Multilingual ability**
-> Note: the model only trained on English data, but it is generalizable to other languages because of the multilingual capability of Llama3! 😊
+> Note: the model only trained on English data, but it is generalizable to other languages thanks to the multilingual capability of Llama3! 😊
 
 ```python
 messages = [
@@ -141,7 +141,7 @@ print(response)
 ```python
 messages = [
             {"role": "system", "content": "Focus on the audio clip."},
-            {"role": "audio", "content": "/home/khlu/lab/projects/DeSTA2/assets/audios/7_1_d7.wav"},
+            {"role": "audio", "content": "assets/audios/7_1_d7.wav"},
             {"role": "user", "content": "Transcribe the audio."},
         ]
 

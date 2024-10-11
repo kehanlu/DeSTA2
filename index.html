@@ -23,7 +23,13 @@
             Ginsburg, Yu-Chiang Frank Wang, Hung-yi Lee</p>
           <p class="subtitle">National Taiwan University, NVIDIA</p>
 
-
+          
+          <a href="https://arxiv.org/pdf/2409.20007">📑 Paper</a> | 
+          <a href="https://kehanlu.github.io/DeSTA2/">🌐 Website</a> | 
+          <a href="https://github.com/kehanlu/DeSTA2">👩‍💻 Github</a> | 
+          <a href="https://huggingface.co/DeSTA-ntu/DeSTA2-8B-beta">🤗 Model</a> | 
+          <a href="https://huggingface.co/datasets/DeSTA-ntu/DeSTA2-Llama3-8B-Instruct">🤗 Dataset</a>
+          
           <!-- <p>Recent end-to-end speech language models (SLMs) have expanded upon the capabilities of large language
             models (LLMs) by incorporating pre-trained speech models. However, these SLMs often undergo
             extensive speech instruction-tuning to bridge the gap between speech and text modalities. This
@@ -41,7 +47,6 @@
         </div>
         <img src="assets/images/figure1.png" style="border-radius: 50px;" alt="">
       </div>
-
     </div>
   </section>
   <!-- <section class="section">
@@ -150,6 +155,40 @@
                 second<br>Therefore,
                 the
                 words per second rate is 2.5 words</td>
+            </tr>
+            <tr>
+              <td>How many speakers are there in the audio?<br>Can you tell me the emotion of each speaker?(sad=1, angry=2, neutral=3, happy=4)?<br>How long is the audio in seconds? <br><br>Do the math multiply the numbers from above 3 questions. Think step by step.</td>
+              <td>
+                Let's break it down step by step:<br>
+                1. How many speakers are there in the audio?<br>
+                There is only 1 speaker.<br>
+                2. Can you tell me the emotion of each speaker?<br>
+                The emotion is happiness, which corresponds to a value of 4.<br>
+                3. How long is the audio in seconds?<br>
+                The audio is 2 seconds long.<br>
+
+                Now, let's do the math:<br>
+                1 x 4 x 2 = 8<br>
+                So, the answer is 8!
+              </td>
+            </tr>
+            <tr>
+              <td>How many speakers are there in the audio? Can you tell me the emotion of each speaker? Can you also provide a brief summary of the audio? Is there any background noise? How do you feel today? Can you give me a response to the audio?</td>
+              <td>There is only 1 speaker in the audio.<br>
+
+                The speaker is a female, and her emotion is happiness.<br>
+                
+                The audio is a brief goodbye message, where the speaker says "Thank you for calling. Goodbye."<br>
+                
+                There is no background noise in the audio.<br>
+                
+                As a machine, I don't have emotions, so I don't feel anything.<br>
+                
+                As for a response to the audio, I can say: "You're welcome, and have a great day!"</td>
+            </tr>
+            <tr>
+              <td>請描述這段聲音，聲音聽起來如何？內容說了什麼？ 以中文回答。<br><br><em>Note: our model only trained on English data, but it is generalizable to other languages thanks to the multilingual capability of Llama3! 😊 </em></td>
+              <td>這段聲音是一個女性的聲音，聽起來是很愉快的。她說了一句「Thank you for calling. Goodbye」，語氣溫柔、柔和，沒有任何激動或激情的感覺。整個聲音聽起來很平靜、很自然，沒有任何明顯的感覺或情感色彩。</td>
             </tr>
         </table>
       </div>
