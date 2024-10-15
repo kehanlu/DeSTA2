@@ -1,3 +1,20 @@
-body{
-  /* background-color: rgb(240, 240,240); */
+td audio {
+  width: 100%;
+  max-width: 300px;
+}
+td{
+  min-width: 200px;
+}
+
+@media (max-width: 768px) {
+  audio {
+    max-width: 300px;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  audio {
+    max-width: 200px;
+  }
 }

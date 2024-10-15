@@ -11,8 +11,8 @@ This paper introduces DeSTA2, a novel approach for developing instruction-follow
 
 ## ✨ News
 
-- 2024/10/10: We release DeSTA2-8B model. See [🤗 Model](https://huggingface.co/DeSTA-ntu/DeSTA2-8B-beta) for details.
-- 2024/10/09: We release the dataset(speech caption). See [🤗 Dataset](https://huggingface.co/datasets/DeSTA-ntu/DeSTA2-Llama3-8B-Instruct) for details.
+- 2024/10/10: We release DeSTA2-8B-beta model. See [🤗 Model](https://huggingface.co/DeSTA-ntu/DeSTA2-8B-beta) for details.
+- 2024/10/09: We release the dataset(speech captions). See [🤗 Dataset](https://huggingface.co/datasets/DeSTA-ntu/DeSTA2-Llama3-8B-Instruct) for details.
 - 2024/10/01: DeSTA2 paper is now available on arXiv. [📑 Paper](https://arxiv.org/pdf/2409.20007)
 
 
@@ -25,7 +25,7 @@ This paper introduces DeSTA2, a novel approach for developing instruction-follow
 ```python
 HF_TOKEN = "hf_..." # your huggingface token for downloading Llama3 from official Meta repo
 
-from huggingface import AutoModel
+from transformers import AutoModel
 
 model = AutoModel.from_pretrained("DeSTA-ntu/DeSTA2-8B-beta", trust_remote_code=True, token=HF_TOKEN)
 model.to("cuda")
@@ -85,6 +85,7 @@ generated_ids = model.chat(messages, max_new_tokens=128, do_sample=True, tempera
 response = model.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 print(response)
 
+# == MODEL RESPONSE ==
 # Based on the given audio snippet, here's my analysis:
 
 # 1. Number of speakers: 1
@@ -107,6 +108,7 @@ generated_ids = model.chat(messages, max_new_tokens=128, do_sample=True, tempera
 response = model.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 print(response)
 
+# == MODEL RESPONSE ==
 # Let's break it down step by step:
 # 1. How many speakers are there in the audio?
 # There is only 1 speaker.
@@ -134,6 +136,7 @@ generated_ids = model.chat(messages, max_new_tokens=128, do_sample=True, tempera
 response = model.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 print(response)
 
+# == MODEL RESPONSE ==
 # 這段聲音是一個女性的聲音，聽起來是很愉快的。她說了一句「Thank you for calling. Goodbye」，語氣溫柔、柔和，沒有任何激動或激情的感覺。整個聲音聽起來很平靜、很自然，沒有任何明顯的感覺或情感色彩。
 ```
 
@@ -149,15 +152,17 @@ generated_ids = model.chat(messages, max_new_tokens=256, do_sample=True, tempera
 response = model.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 print(response)
 
+# == MODEL RESPONSE ==
 # Here is the transcription of the audio clip:
 # "Thank you for calling. Goodbye."
 
 messages.append({"role": "assistant", "content": response})
-messages.append({"role": "user", "content": "Who is the speaker taling to?"})
+messages.append({"role": "user", "content": "Who is the speaker talking to?"})
 generated_ids = model.chat(messages, max_new_tokens=256, do_sample=True, temperature=0.6, top_p=0.9)
 response = model.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 print(response)
 
+# == MODEL RESPONSE ==
 # The speaker is speaking to someone who has called them, but it's not specified who that person is. The conversation appears to be a brief and abrupt goodbye, suggesting that the speaker may not have had a conversation with the caller or may have been interrupted.
 ```
 

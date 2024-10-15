@@ -1,36 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>DeSTA2: Developing Instruction-Following Speech Language Model Without Speech Instruction-Tuning Data</title>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-body">
+          <p class="title is-1">
+            DeSTA2: Developing Instruction-Following Speech Language Model Without Speech Instruction-Tuning Data
+          </p>
+          <div class="content is-medium">
+            <p class="subtitle">
+              Ke-Han Lu, Zhehuai Chen, Szu-Wei Fu, Chao-Han Huck Yang, Jagadeesh Balam, Boris Ginsburg, Yu-Chiang Frank
+              Wang, Hung-yi Lee
+            </p>
+            <p class="subtitle">National Taiwan University, NVIDIA</p>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
-    > -->
-  <link rel="stylesheet" href="assets/css/bulma-no-dark-mode.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <title>DeSTA2: Developing Instruction-Following Speech Language
-    Model Without Speech Instruction-Tuning Data</title>
+            <a href="https://arxiv.org/pdf/2409.20007">📑 Paper</a> |
+            <a href="https://kehanlu.github.io/DeSTA2/">🌐 Website</a> |
+            <a href="https://github.com/kehanlu/DeSTA2">👩‍💻 Github</a> |
+            <a href="https://huggingface.co/DeSTA-ntu/DeSTA2-8B-beta">🤗 Model</a> |
+            <a href="https://huggingface.co/datasets/DeSTA-ntu/DeSTA2-Llama3-8B-Instruct">🤗 Dataset</a>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-body">
-        <p class="title is-1">DeSTA2: Developing Instruction-Following Speech Language
-          Model Without Speech Instruction-Tuning Data</p>
-        <div class="content is-large">
-          <p class="subtitle">Ke-Han Lu, Zhehuai Chen, Szu-Wei Fu, Chao-Han Huck Yang, Jagadeesh Balam, Boris
-            Ginsburg, Yu-Chiang Frank Wang, Hung-yi Lee</p>
-          <p class="subtitle">National Taiwan University, NVIDIA</p>
-
-          
-          <a href="https://arxiv.org/pdf/2409.20007">📑 Paper</a> | 
-          <a href="https://kehanlu.github.io/DeSTA2/">🌐 Website</a> | 
-          <a href="https://github.com/kehanlu/DeSTA2">👩‍💻 Github</a> | 
-          <a href="https://huggingface.co/DeSTA-ntu/DeSTA2-8B-beta">🤗 Model</a> | 
-          <a href="https://huggingface.co/datasets/DeSTA-ntu/DeSTA2-Llama3-8B-Instruct">🤗 Dataset</a>
-          
-          <!-- <p>Recent end-to-end speech language models (SLMs) have expanded upon the capabilities of large language
+            <!-- <p>Recent end-to-end speech language models (SLMs) have expanded upon the capabilities of large language
             models (LLMs) by incorporating pre-trained speech models. However, these SLMs often undergo
             extensive speech instruction-tuning to bridge the gap between speech and text modalities. This
             requires significant annotation efforts and risks catastrophic forgetting of the original language
@@ -44,496 +41,550 @@
             effectiveness of SLMs but also reduces reliance on extensive annotated datasets, paving the way for
             more efficient and capable speech understanding systems.
           </p> -->
-        </div>
-        <img src="assets/images/figure1.png" style="border-radius: 50px;" alt="">
-      </div>
-    </div>
-  </section>
-  <!-- <section class="section">
-    <div class="container">
-      <img src="assets/images/figure1.png" style="border-radius: 50px;" alt="">
-
-    </div>
-  </section> -->
-
-  <section class="section">
-    <div class="container">
-      <div class="box">
-        <div class="content is-large">
-          <h2 class="title is-4">
-            ✨✨ Key features
-          </h2>
-
-          <ul>
-            <li>We propose an automatic approach to develop speech language models <em><b>without</b></em> using speech
-              instruction-tuning data. We aim to inject speech understanding
-              capability into text-based LLMs while keeping their original versatility.
-            </li>
-            <li>We train the end-to-end speech language model with carefully constructed
-              <a href="#dataset-construction">speech captions</a> to
-              avoid the catastrophic forgetting problem.
-            </li>
-            <li>
-              The model shows strong <a href="#instruction-following">instruction-following ability</a> and demonstrates
-              robust
-              speech understanding capability on the <a href="#dynamic-superb">Dynamic-SUPERB</a> and
-              <a href="#AIR-Bench-Chat">AIR-Bench-Chat</a> benchmarks.
-            </li>
-          </ul>
+          </div>
+          <img src="assets/images/figure1.png" style="border-radius: 50px" alt="" />
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="box">
-        <div class="content">
-          <h2 class="title is-2" id="instruction-following">Instruction-following Ability</h2>
-          <p>Our model not only demonstrates strong speech understanding capabilities but also excels in following
-            complex
-            instructions, such as following specific output formatting and chain-of-thought reasoning.
-          </p>
+    <section class="section">
+      <div class="container">
+        <div class="box">
+          <div class="content is-medium">
+            <h2 class="title is-4">✨✨ Key features</h2>
+
+            <ul>
+              <li>
+                We propose an automatic approach to develop speech language models <em><b>without</b></em> using speech
+                instruction-tuning data. We aim to inject speech understanding capability into text-based LLMs while
+                keeping their original versatility.
+              </li>
+              <li>
+                We train the end-to-end speech language model with carefully constructed
+                <a href="#dataset-construction">speech captions</a> to avoid the catastrophic forgetting problem.
+              </li>
+              <li>
+                The model shows strong <a href="#instruction-following">instruction-following ability</a> and
+                demonstrates robust speech understanding capability on the
+                <a href="#dynamic-superb">Dynamic-SUPERB</a> and
+                <a href="#AIR-Bench-Chat">AIR-Bench-Chat</a> benchmarks.
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <audio controls>
-          <source src="assets/audios/7_1_d7.wav" type="audio/ogg">
-        </audio>
-        <table class="table is-fullwidth">
-          <thead>
-            <tr>
-              <th>Instruction</th>
-              <th>Model Output</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>What is the gender of the speaker? <b>Your entire response should be in English, capital letters
-                  only.</b></td>
-              <td>THE GENDER OF THE SPEAKER IS FEMALE.</td>
-            </tr>
-            <tr>
-              <td>What is the emotion of the speaker? <b>Your entire response should be in English, capital letters
-                  only.</b>
-              </td>
-              <td>HAPPINESS</td>
-            </tr>
-            <tr>
-              <td>What is the gender of the speaker? <b>Answer in JSON format.</b></td>
-              <td>{"gender": "Female" }</td>
-            </tr>
-            <tr>
-              <td>What is the emotion conveyed in the speech? <b>Think step by step.</b></td>
-              <td>Let's break it down step by step!<br>1. We start with the phrase "Thank you for calling". This
-                implies
-                that a request has been made, and the speaker is expressing gratitude.<br>2. The next phrase is
-                "Goodbye".
-                This is a normal way to end a conversation, and it's a polite way to part ways.<br>Considering these
-                two
-                phrases together, we can infer that the speaker is happy to end the conversation and is not expecting
-                anything further. The tone is friendly and grateful, suggesting that the speaker has had a positive
-                interaction.<br>Therefore, the emotion conveyed in the speech is happiness!</td>
-            </tr>
-            <tr>
-              <td><b>Analyze the speech,</b> then tell me what is the emotion conveyed in the speech?</td>
-              <td>Let's break down the speech:<br>* "Thank you for calling": This phrase is a polite expression of
-                gratitude for the person's call.<br>* "Goodbye": This is a final farewell, indicating that the
-                conversation is ending.<br>The tone of the speech is polite and friendly, as the speaker is thanking the
-                person for calling and bidding them farewell.<br>The emotion conveyed in this speech is happiness. The
-                speaker seems cheerful and appreciative, expressing gratitude for the call and ending the conversation
-                on
-                a positive note.</td>
-            </tr>
-            <tr>
-              <td>Calculate the words per second rate, <b>think step by step.</b>
-              </td>
-              <td>Let's break it down step by step:<br>1. The speech lasts for 2 seconds: [00:00:00 - 00:00:02]<br>2.
-                The
-                number of words is: "Thank you for calling. Goodbye." (5 words)<br>3. To find the words per second rate,
-                we need to divide the number of words by the time it took to say the words:<br>Words per second = Total
-                number of words / Time taken (in seconds)<br>= 5 words / 2 seconds<br>= 2.5 words per
-                second<br>Therefore,
-                the
-                words per second rate is 2.5 words</td>
-            </tr>
-            <tr>
-              <td>How many speakers are there in the audio?<br>Can you tell me the emotion of each speaker?(sad=1, angry=2, neutral=3, happy=4)?<br>How long is the audio in seconds? <br><br>Do the math multiply the numbers from above 3 questions. Think step by step.</td>
-              <td>
-                Let's break it down step by step:<br>
-                1. How many speakers are there in the audio?<br>
-                There is only 1 speaker.<br>
-                2. Can you tell me the emotion of each speaker?<br>
-                The emotion is happiness, which corresponds to a value of 4.<br>
-                3. How long is the audio in seconds?<br>
-                The audio is 2 seconds long.<br>
-
-                Now, let's do the math:<br>
-                1 x 4 x 2 = 8<br>
-                So, the answer is 8!
-              </td>
-            </tr>
-            <tr>
-              <td>How many speakers are there in the audio? Can you tell me the emotion of each speaker? Can you also provide a brief summary of the audio? Is there any background noise? How do you feel today? Can you give me a response to the audio?</td>
-              <td>There is only 1 speaker in the audio.<br>
-
-                The speaker is a female, and her emotion is happiness.<br>
-                
-                The audio is a brief goodbye message, where the speaker says "Thank you for calling. Goodbye."<br>
-                
-                There is no background noise in the audio.<br>
-                
-                As a machine, I don't have emotions, so I don't feel anything.<br>
-                
-                As for a response to the audio, I can say: "You're welcome, and have a great day!"</td>
-            </tr>
-            <tr>
-              <td>請描述這段聲音，聲音聽起來如何？內容說了什麼？ 以中文回答。<br><br><em>Note: our model only trained on English data, but it is generalizable to other languages thanks to the multilingual capability of Llama3! 😊 </em></td>
-              <td>這段聲音是一個女性的聲音，聽起來是很愉快的。她說了一句「Thank you for calling. Goodbye」，語氣溫柔、柔和，沒有任何激動或激情的感覺。整個聲音聽起來很平靜、很自然，沒有任何明顯的感覺或情感色彩。</td>
-            </tr>
-        </table>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="title is-2">Speech Understanding Ability</h2>
-      <div class="content is-medium">
-        <h2 class="title is-4" id="dynamic-superb">Dynamic-SUPERB</h2>
-        <p><a href="https://ieeexplore.ieee.org/document/10448257">Dynamic-SUPERB</a> is a crowdsourced benchmark
-          comprising 48 speech-related
-          classification tasks with human-created instructions and answers.</p>
+    <section class="section">
+      <div class="container">
+        <div class="box">
+          <div class="content">
+            <h2 class="title is-2" id="instruction-following">Instruction-following Ability</h2>
+            <p>
+              Our model not only demonstrates strong speech understanding capabilities but also excels in following
+              complex instructions, such as following specific output formatting and chain-of-thought reasoning.
+            </p>
+          </div>
+
+          <audio controls>
+            <source src="assets/audios/7_1_d7.wav" type="audio/ogg" />
+          </audio>
+          <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th>Instruction</th>
+                <th>Model Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  What is the gender of the speaker?
+                  <b>Your entire response should be in English, capital letters only.</b>
+                </td>
+                <td>THE GENDER OF THE SPEAKER IS FEMALE.</td>
+              </tr>
+              <tr>
+                <td>
+                  What is the emotion of the speaker?
+                  <b>Your entire response should be in English, capital letters only.</b>
+                </td>
+                <td>HAPPINESS</td>
+              </tr>
+              <tr>
+                <td>What is the gender of the speaker? <b>Answer in JSON format.</b></td>
+                <td>{"gender": "Female" }</td>
+              </tr>
+              <tr>
+                <td>What is the emotion conveyed in the speech? <b>Think step by step.</b></td>
+                <td>
+                  Let's break it down step by step!<br />1. We start with the phrase "Thank you for calling". This
+                  implies that a request has been made, and the speaker is expressing gratitude.<br />2. The next phrase
+                  is "Goodbye". This is a normal way to end a conversation, and it's a polite way to part ways.<br />Considering
+                  these two phrases together, we can infer that the speaker is happy to end the conversation and is not
+                  expecting anything further. The tone is friendly and grateful, suggesting that the speaker has had a
+                  positive interaction.<br />Therefore, the emotion conveyed in the speech is happiness!
+                </td>
+              </tr>
+              <tr>
+                <td><b>Analyze the speech,</b> then tell me what is the emotion conveyed in the speech?</td>
+                <td>
+                  Let's break down the speech:<br />* "Thank you for calling": This phrase is a polite expression of
+                  gratitude for the person's call.<br />* "Goodbye": This is a final farewell, indicating that the
+                  conversation is ending.<br />The tone of the speech is polite and friendly, as the speaker is thanking
+                  the person for calling and bidding them farewell.<br />The emotion conveyed in this speech is
+                  happiness. The speaker seems cheerful and appreciative, expressing gratitude for the call and ending
+                  the conversation on a positive note.
+                </td>
+              </tr>
+              <tr>
+                <td>Calculate the words per second rate, <b>think step by step.</b></td>
+                <td>
+                  Let's break it down step by step:<br />1. The speech lasts for 2 seconds: [00:00:00 - 00:00:02]<br />2.
+                  The number of words is: "Thank you for calling. Goodbye." (5 words)<br />3. To find the words per
+                  second rate, we need to divide the number of words by the time it took to say the words:<br />Words
+                  per second = Total number of words / Time taken (in seconds)<br />= 5 words / 2 seconds<br />= 2.5
+                  words per second<br />Therefore, the words per second rate is 2.5 words
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  How many speakers are there in the audio? Can you tell me the emotion of each speaker? Can you also
+                  provide a brief summary of the audio? Is there any background noise? How do you feel today? Can you
+                  give me a response to the audio?
+                </td>
+                <td>
+                  There is only 1 speaker in the audio.<br />
+
+                  The speaker is a female, and her emotion is happiness.<br />
+
+                  The audio is a brief goodbye message, where the speaker says "Thank you for calling. Goodbye."<br />
+
+                  There is no background noise in the audio.<br />
+
+                  As a machine, I don't have emotions, so I don't feel anything.<br />
+
+                  As for a response to the audio, I can say: "You're welcome, and have a great day!"
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  請描述這段聲音，聲音聽起來如何？內容說了什麼？ 以中文回答。<br /><br /><em
+                    >Note: our model only trained on English data, but it is generalizable to other languages thanks to
+                    the multilingual capability of Llama3! 😊
+                  </em>
+                </td>
+                <td>
+                  這段聲音是一個女性的聲音，聽起來是很愉快的。她說了一句「Thank you for calling.
+                  Goodbye」，語氣溫柔、柔和，沒有任何激動或激情的感覺。整個聲音聽起來很平靜、很自然，沒有任何明顯的感覺或情感色彩。
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <b>Multi-turn question-answering</b><br />
+                  <em style="background-color: #f0f0f0">First question</em> <br />
+                  Transcribe the audio. <br /><br />
+                  <em style="background-color: #f0f0f0">Second question</em> <br />
+                  Who is the speaker talking to?
+                </td>
+                <td>
+                  <em style="background-color: #f0f0f0">First response</em><br />
+                  Here is the transcription of the audio clip: <br />
+                  "Thank you for calling. Goodbye." <br />
+                  <br />
+                  <em style="background-color: #f0f0f0">Second response</em><br />
+                  The speaker is speaking to someone who has called them, but it's not specified who that person is. The
+                  conversation appears to be a brief and abrupt goodbye, suggesting that the speaker may not have had a
+                  conversation with the caller or may have been interrupted.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+    </section>
 
-      <div class="table-container">
-        <table class="table is-fullwidth">
-          <thead>
-            <tr>
-              <th>Audio</th>
-              <th>Instruction</th>
-              <th>Model Output</th>
-              <th>Ground Truth</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/LanguageIdentification_VoxForge_0000_de143-43.flac" type="audio/ogg">
-                </audio>
-                <p>LanguageIdentification</p>
-              </td>
-              <td>
-                Which language can you recognize from this audio recording? The answer could be German, English,
-                Spanish, Italian, Russian, or French.
-              </td>
-              <td>Based on the audio recording, I recognize the language as German. The phrase "Die hätte man dicht
-                machen müssen" is a grammatically correct and idiomatic German sentence, and the speaker's accent and
-                pronunciation also suggest a German speaker.</td>
-              <td>German</td>
-            </tr>
-            <tr>
-              <td><audio controls>
-                  <source
-                    src="assets/audios/NoiseDetection_LJSpeech_MUSAN-Music_0199_music_LJSpeech-1.1_16k_LJ050-0033.wav"
-                    type="audio/ogg">
-                </audio>
-                <p>NoiseDetection</p>
-              </td>
-              <td>Determine whether the sentence is a noise-free utterance or a noisy one with music disturbance. The
-                answer could be clean or noisy.</td>
-              <td>Based on the provided information, I would classify the sentence as "noisy". The noise level is
-                moderate (15db), and there is a reverberation time of 60ms, which suggests that there is some
-                background
-                noise or music disturbance present.</td>
-              <td>Noisy</td>
-            </tr>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/AccentClassification_AccentdbExtended_0193_british_s01_176.wav"
-                    type="audio/ogg">
-                </audio>
-                <p>AccentClassification</p>
-              </td>
-              <td>The task involves detecting variations in pronunciation and intonation. The answer could be
-                american,
-                australian, bangla, british, indian, malayalam, odiya, telugu, or welsh.</td>
-              <td>Based on the accent and pronunciation, I would identify the speaker as having a British accent.</td>
-              <td>British</td>
-            </tr>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/EmotionRecognition_MultimodalEmotionlinesDataset_0026_dia382_utt0.wav"
-                    type="audio/ogg">
-                </audio>
-                <p>EmotionRecognition</p>
-              </td>
-              <td>Recognize and categorize the emotions expressed in spoken language. The answer could be anger,
-                disgust, sadness, joy, neutral, surprise, or fear.</td>
-              <td>Based on the audio clip, the emotion expressed is "joy". The speaker's tone and words ("Here she
-                is, future fashion superstar") convey a sense of excitement and happiness, indicating a positive
-                emotional state.</td>
-              <td>Joy</td>
-            </tr>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/DialogueEmotionClassification_DailyTalk_0196_7_1_d756.wav"
-                    type="audio/ogg">
-                </audio>
-                <p>DialogueEmotionClassification</p>
-              </td>
-              <td>Analyze the dialogue and identify its corresponding emotion. The answer could be anger, disgust,
-                fear,
-                sadness, happiness, surprise, or no emotion.</td>
-              <td>Based on the dialogue, the corresponding emotion is sadness. The speaker is apologizing and
-                expressing
-                regret for causing trouble, which is a characteristic of a sad tone.</td>
-              <td>Sadness</td>
-            </tr>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/SpeechTextMatching_LJSpeech_0001_LJ001-0107.wav">
-                </audio>
-                <p>SpeechTextMatching</p>
-              </td>
-              <td>Verify if the speech and text are congruent. The answer could be yes or no.<br>Text: "guidelines for
-                an experimental program to develop more detailed criteria"</td>
-              <td>The answer is NO.<br>The speech is about saying a few words on the principles of design and
-                typography, but the text is about guidelines for an experimental program to develop more detailed
-                criteria, which is a different topic.</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/SpeakerVerification_LibriSpeech-TestClean_0046_3575-170457-0038.flac">
-                </audio>
-                <p>SpeakerVerification</p>
-              </td>
-              <td>Scrutinize the first audio clip to establish whether the second one is delivered by the same
-                speaker.
-                The answer could be yes or no.</td>
-              <td>Based on the provided audio clip, I would say NO, the second audio clip is not delivered by the same
-                speaker. The tone, pitch, and emotion expressed in the first audio clip (neutral, calm, and
-                introspective) are different from what I would expect from the same speaker. The first audio clip has
-                a
-                more contemplative and reflective tone, whereas the second audio clip is more dramatic and emotive.
-              </td>
-              <td>No</td>
-            </tr>
-          </tbody>
-        </table>
+    <section class="section">
+      <div class="container">
+        <div class="box">
+          <h2 class="title is-2">Speech Understanding Ability</h2>
+          <div class="content is-medium">
+            <h2 class="title is-4" id="dynamic-superb">Dynamic-SUPERB</h2>
+            <p>
+              <a href="https://ieeexplore.ieee.org/document/10448257">Dynamic-SUPERB</a> is a crowdsourced benchmark
+              comprising 48 speech-related classification tasks with human-created instructions and answers.
+            </p>
+          </div>
+
+          <div class="table-container">
+            <table class="table is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Audio</th>
+                  <th>Instruction</th>
+                  <th>Model Output</th>
+                  <th>Ground Truth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source src="assets/audios/LanguageIdentification_VoxForge_0000_de143-43.flac" type="audio/ogg" />
+                    </audio>
+                    <p>LanguageIdentification</p>
+                  </td>
+                  <td>
+                    Which language can you recognize from this audio recording? The answer could be German, English,
+                    Spanish, Italian, Russian, or French.
+                  </td>
+                  <td>
+                    Based on the audio recording, I recognize the language as German. The phrase "Die hätte man dicht
+                    machen müssen" is a grammatically correct and idiomatic German sentence, and the speaker's accent
+                    and pronunciation also suggest a German speaker.
+                  </td>
+                  <td>German</td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source
+                        src="assets/audios/NoiseDetection_LJSpeech_MUSAN-Music_0199_music_LJSpeech-1.1_16k_LJ050-0033.wav"
+                        type="audio/ogg"
+                      />
+                    </audio>
+                    <p>NoiseDetection</p>
+                  </td>
+                  <td>
+                    Determine whether the sentence is a noise-free utterance or a noisy one with music disturbance. The
+                    answer could be clean or noisy.
+                  </td>
+                  <td>
+                    Based on the provided information, I would classify the sentence as "noisy". The noise level is
+                    moderate (15db), and there is a reverberation time of 60ms, which suggests that there is some
+                    background noise or music disturbance present.
+                  </td>
+                  <td>Noisy</td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source
+                        src="assets/audios/AccentClassification_AccentdbExtended_0193_british_s01_176.wav"
+                        type="audio/ogg"
+                      />
+                    </audio>
+                    <p>AccentClassification</p>
+                  </td>
+                  <td>
+                    The task involves detecting variations in pronunciation and intonation. The answer could be
+                    american, australian, bangla, british, indian, malayalam, odiya, telugu, or welsh.
+                  </td>
+                  <td>
+                    Based on the accent and pronunciation, I would identify the speaker as having a British accent.
+                  </td>
+                  <td>British</td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source
+                        src="assets/audios/EmotionRecognition_MultimodalEmotionlinesDataset_0026_dia382_utt0.wav"
+                        type="audio/ogg"
+                      />
+                    </audio>
+                    <p>EmotionRecognition</p>
+                  </td>
+                  <td>
+                    Recognize and categorize the emotions expressed in spoken language. The answer could be anger,
+                    disgust, sadness, joy, neutral, surprise, or fear.
+                  </td>
+                  <td>
+                    Based on the audio clip, the emotion expressed is "joy". The speaker's tone and words ("Here she is,
+                    future fashion superstar") convey a sense of excitement and happiness, indicating a positive
+                    emotional state.
+                  </td>
+                  <td>Joy</td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source
+                        src="assets/audios/DialogueEmotionClassification_DailyTalk_0196_7_1_d756.wav"
+                        type="audio/ogg"
+                      />
+                    </audio>
+                    <p>DialogueEmotionClassification</p>
+                  </td>
+                  <td>
+                    Analyze the dialogue and identify its corresponding emotion. The answer could be anger, disgust,
+                    fear, sadness, happiness, surprise, or no emotion.
+                  </td>
+                  <td>
+                    Based on the dialogue, the corresponding emotion is sadness. The speaker is apologizing and
+                    expressing regret for causing trouble, which is a characteristic of a sad tone.
+                  </td>
+                  <td>Sadness</td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source src="assets/audios/SpeechTextMatching_LJSpeech_0001_LJ001-0107.wav" />
+                    </audio>
+                    <p>SpeechTextMatching</p>
+                  </td>
+                  <td>
+                    Verify if the speech and text are congruent. The answer could be yes or no.<br />Text: "guidelines
+                    for an experimental program to develop more detailed criteria"
+                  </td>
+                  <td>
+                    The answer is NO.<br />The speech is about saying a few words on the principles of design and
+                    typography, but the text is about guidelines for an experimental program to develop more detailed
+                    criteria, which is a different topic.
+                  </td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source
+                        src="assets/audios/SpeakerVerification_LibriSpeech-TestClean_0046_3575-170457-0038.flac"
+                      />
+                    </audio>
+                    <p>SpeakerVerification</p>
+                  </td>
+                  <td>
+                    Scrutinize the first audio clip to establish whether the second one is delivered by the same
+                    speaker. The answer could be yes or no.
+                  </td>
+                  <td>
+                    Based on the provided audio clip, I would say NO, the second audio clip is not delivered by the same
+                    speaker. The tone, pitch, and emotion expressed in the first audio clip (neutral, calm, and
+                    introspective) are different from what I would expect from the same speaker. The first audio clip
+                    has a more contemplative and reflective tone, whereas the second audio clip is more dramatic and
+                    emotive.
+                  </td>
+                  <td>No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="content is-medium">
+            <h2 class="title is-4" id="AIR-Bench-Chat">AIR-Bench-Chat</h2>
+            <p>
+              <a href="https://arxiv.org/abs/2402.07729">AIR-Bench-Chat</a> is an LLM-generated benchmark derived from
+              speech metadata that focuses on open-ended questions.
+            </p>
+          </div>
+          <div class="table-container">
+            <table class="table is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Audio</th>
+                  <th>Instruction</th>
+                  <th>Model Output</th>
+                  <th>Ground Truth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source src="assets/audios/Ses01M_script01_1_F014.wav" />
+                    </audio>
+                  </td>
+                  <td>
+                    Based on the speaker's emotional state, what could be the nature of the proof being requested?
+                  </td>
+                  <td>
+                    Based on the speaker's angry tone and high-pitched voice, it is likely that the proof being
+                    requested is related to a dispute or controversy. The speaker is demanding evidence to support a
+                    claim or argument, and is likely feeling frustrated or upset that the other party has not provided
+                    sufficient evidence to back up their claims.
+                  </td>
+                  <td>
+                    Given the speaker's anger, the proof likely relates to a serious allegation or an issue that
+                    significantly impacts the speaker..
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source src="assets/audios/Ses04F_impro02_M004.wav" />
+                    </audio>
+                  </td>
+                  <td>
+                    What emotion is the speaker likely trying to convey to the listener by stating a fear of their
+                    departure?
+                  </td>
+                  <td>
+                    Based on the given information, the speaker is likely trying to convey a sense of sadness to the
+                    listener by stating a fear of their departure. The low pitch, slow speaking speed, and very low
+                    volume suggest a somber and melancholic tone, which is consistent with a sad emotion.
+                  </td>
+                  <td>The speaker is trying to convey a sense of sadness and attachment to the listener.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source src="assets/audios/Ses01F_script03_1_F029.wav" />
+                    </audio>
+                  </td>
+                  <td>What could be the next step for the manager after witnessing such a scene?</td>
+                  <td>
+                    Based on the manager's tone and emotion, it seems that she is amused and entertained by the scene.
+                    Given her high pitch and volume, she might be trying to emphasize the absurdity of the situation.
+                    Considering her slow speaking speed, she might be savoring the moment and enjoying the spectacle.<br /><br />As
+                    a next step, the manager could:<br />* Laugh and join in on the fun, possibly even taking a photo or
+                    video to capture the moment.<br />* Try to intervene and calm the situation down, but in a playful
+                    and lighthearted manner, acknowledging the absurdity of the situation.<br />* Use the opportunity to
+                    make a humorous
+                  </td>
+                  <td>The manager might need to intervene or address the situation occurring on the floor.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <audio controls>
+                      <source src="assets/audios/MUL0608_120.98_148.92.wav" />
+                    </audio>
+                  </td>
+                  <td>What did the second person inquire about after the first person's request?</td>
+                  <td>The second person inquired about the price range of the restaurant.</td>
+                  <td>The second person inquired about any specifications on the price range.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="content is-medium">
-        <h2 class="title is-4" id="AIR-Bench-Chat">AIR-Bench-Chat</h2>
-        <p><a href="https://arxiv.org/abs/2402.07729">AIR-Bench-Chat</a> is an LLM-generated benchmark derived from
-          speech metadata that focuses on open-ended questions.</p>
+    <section class="section">
+      <div class="container">
+        <div class="box">
+          <h1 class="title is-2">Method</h1>
+          <div class="content">
+            <h2 class="title is-3" id="dataset-construction">Stage 1: Dataset Consturction</h2>
+
+            <p>
+              In our dataset construction process, we first extract and format all textual attributes from the speech
+              into a structured "seed transcript." This seed transcript is then combined with the prompt "What can you
+              hear from the audio?" and fed into Llama3. The response generated by Llama3 becomes our training target
+              for the end-to-end speech language model.
+            </p>
+            <p>
+              There are 12 attributes, including gender, age, accent, emotion, pitch, volume, speaking speed, SNR level,
+              C50 value, duration, intent, and spoken text.
+            </p>
+
+            <img src="assets/images/dataset_construction.png" alt="" />
+            <div class="table-container">
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr>
+                    <th style="color: orange">Seed Transcript</th>
+                    <th>Llama3-Instruct Response</th>
+                    <th>Correspond Audio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      [00:00:01 - 00:00:02]: "These days are long gone." (Gender:Male, Accent: Scottish, Age: 20,
+                      Emotion: neutral, Duration: 2s)
+                    </td>
+                    <td>
+                      From the audio, I can hear:<br />* A male voice with a Scottish accent<br />* The voice is
+                      approximately 20 years old<br />* The tone is neutral, indicating a lack of strong emotions<br />*
+                      The audio duration is 2 seconds
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="assets/audios/p284_159.wav" />
+                      </audio>
+                      <p>VCTK-Corpus</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      [00:00:01 - 00:00:04]: "At the top level, the salaries are far too high." (Gender:Male, Accent:
+                      English, Age: 23, Emotion: neutral, Duration: 4s)
+                    </td>
+                    <td>
+                      From the audio, we can hear a male speaker with an English accent (possibly British English)
+                      saying:<br />"At the top level, the salaries are far too high."<br />The speaker is a 23-year-old
+                      male with a neutral emotion. The audio lasts for 4 seconds.
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="assets/audios/p287_162.wav" />
+                      </audio>
+                      <p>VCTK-Corpus</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      [00:00:01 - 00:00:04]: "Oh, lovely. Where's the wedding going to be?" (Gender:Male, Emotion:
+                      happiness, Action: question, Duration: 4s)
+                    </td>
+                    <td>
+                      From the audio, I can hear a male speaker asking a question with a tone of happiness, specifically
+                      the words: "Oh, lovely. Where's the wedding going to be?"
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="assets/audios/4_0_d47.wav" />
+                      </audio>
+                      <p>Dailytalk</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      [00:00:01 - 00:00:07]: "A new pride taught me mine ego, and that teach I unto men: no longer to
+                      thrust one's head into the sand of celestial things, but to carry it freely, a terrestrial head,
+                      which giveth meaning to the earth!" (Gender:Male, Emotion: cheerful, Pitch: Normal, Volume:
+                      Normal, Speaking speed: Fast, Duration: 7s)
+                    </td>
+                    <td>
+                      From the given audio, we can hear a male speaker with a cheerful tone, speaking at a normal pitch
+                      and volume. The speaking speed is relatively fast, and the duration is 7 seconds.<br />The audio
+                      appears to be a philosophical or inspirational quote, with the speaker using poetic language to
+                      convey a message. The text itself is a condensed and somewhat abstract statement, but it seems to
+                      be encouraging people to be more grounded and down-to-earth, rather than getting lost in lofty or
+                      abstract concepts.
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="assets/audios/0_000307.wav" />
+                      </audio>
+                      <p>PromptTTS</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="container">
+            <div class="content">
+              <h2 class="title is-3">Stage 2: Model training</h2>
+
+              <p>
+                During the model training phase, we utilize a pre-trained Whisper model to extract speech features and
+                generate text transcriptions from the audio input. These speech features and the text embeddings (from
+                the transcription and chat template) are concatenated before being fed into Llama3. We maintain a
+                consistent template structure to prevent any mismatch. Finally, the model is trained to generate speech
+                descriptions, effectively learning to interpret and articulate the nuances of spoken content based on
+                both acoustic features and textual information.
+              </p>
+
+              <img src="assets/images/model_training.png" alt="" />
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="table-container">
-        <table class="table is-fullwidth">
-          <thead>
-            <tr>
-              <th>Audio</th>
-              <th>Instruction</th>
-              <th>Model Output</th>
-              <th>Ground Truth</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/Ses01M_script01_1_F014.wav">
-                </audio>
-              </td>
-              <td>Based on the speaker's emotional state, what could be the nature of the proof being requested?</td>
-              <td>Based on the speaker's angry tone and high-pitched voice, it is likely that the proof being
-                requested
-                is related to a dispute or controversy. The speaker is demanding evidence to support a claim or
-                argument, and is likely feeling frustrated or upset that the other party has not provided sufficient
-                evidence to back up their claims.</td>
-              <td>Given the speaker's anger, the proof likely relates to a serious allegation or an issue that
-                significantly impacts the speaker..</td>
-            </tr>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/Ses04F_impro02_M004.wav">
-                </audio>
-              </td>
-              <td>What emotion is the speaker likely trying to convey to the listener by stating a fear of their
-                departure?</td>
-              <td>Based on the given information, the speaker is likely trying to convey a sense of sadness to the
-                listener by stating a fear of their departure. The low pitch, slow speaking speed, and very low volume
-                suggest a somber and melancholic tone, which is consistent with a sad emotion.</td>
-              <td>The speaker is trying to convey a sense of sadness and attachment to the listener.</td>
-            </tr>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/Ses01F_script03_1_F029.wav">
-                </audio>
-              </td>
-              <td>What could be the next step for the manager after witnessing such a scene?</td>
-              <td>Based on the manager's tone and emotion, it seems that she is amused and entertained by the scene.
-                Given her high pitch and volume, she might be trying to emphasize the absurdity of the situation.
-                Considering her slow speaking speed, she might be savoring the moment and enjoying the
-                spectacle.<br><br>As
-                a next step, the manager could:<br>* Laugh and join in on the fun, possibly even taking a photo or
-                video
-                to capture the moment.<br>* Try to intervene and calm the situation down, but in a playful and
-                lighthearted manner, acknowledging the absurdity of the situation.<br>* Use the opportunity to make a
-                humorous</td>
-              <td>The manager might need to intervene or address the situation occurring on the floor.</td>
-            </tr>
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="assets/audios/MUL0608_120.98_148.92.wav">
-                </audio>
-              </td>
-              <td>What did the second person inquire about after the first person's request?</td>
-              <td>The second person inquired about the price range of the restaurant.</td>
-              <td>The second person inquired about any specifications on the price range.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h1 class="title is-2">Method</h1>
-      <div class="content is-large">
-        <h2 class="title is-3" id="dataset-construction">Stage 1: Dataset Consturction</h2>
-
-        <p>In our dataset construction process, we first extract and format all textual attributes from the speech into
-          a structured "seed transcript." This seed transcript is then combined with the prompt "What can you hear from
-          the audio?" and fed into Llama3. The response generated by Llama3 becomes our training
-          target for the end-to-end speech language model.</p>
-        <p>There are 12 attributes, including gender, age, accent, emotion, pitch, volume, speaking speed, SNR level,
-          C50 value, duration, intent, and spoken text.</p>
-
-        <img src="assets/images/dataset_construction.png" alt="">
-      </div>
-    </div>
-
-
-    <div class="container">
-      <!-- 
-      <div class="content">
-        <code><|begin_of_text|><|start_header_id|>user<|end_header_id|> </code><br>
-        <code><b>{seed transcript}</b></code><br>
-
-        <code><b>What can you hear from the audio?</b></code><br>
-        <code><|eot_id|><|start_header_id|>assistant<|end_header_id|></code>
-      </div> -->
-
-
-      <table class="table is-fullwidth">
-        <thead>
-          <tr>
-            <th style="color:orange">Seed Transcript</th>
-            <th>Llama3-Instruct Response</th>
-            <th>Correspond Audio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>[00:00:01 - 00:00:02]: "These days are long gone." (Gender:Male, Accent: Scottish, Age: 20, Emotion:
-              neutral, Duration: 2s)</td>
-            <td>From the audio, I can hear:<br>* A male voice with a Scottish accent<br>* The voice is approximately
-              20
-              years old<br>* The tone is neutral, indicating a lack of strong emotions<br>* The audio duration is 2
-              seconds
-            </td>
-            <td>
-              <audio controls>
-                <source src="assets/audios/p284_159.wav">
-              </audio>
-              <p>VCTK-Corpus</p>
-            </td>
-          </tr>
-          <tr>
-            <td>[00:00:01 - 00:00:04]: "At the top level, the salaries are far too high." (Gender:Male, Accent:
-              English, Age: 23, Emotion: neutral, Duration: 4s)</td>
-            <td>From the audio, we can hear a male speaker with an English accent (possibly British English)
-              saying:<br>"At the top level, the salaries are far too high."<br>The speaker is a 23-year-old male with
-              a neutral emotion. The audio lasts for 4 seconds.</td>
-            <td>
-              <audio controls>
-                <source src="assets/audios/p287_162.wav">
-              </audio>
-              <p>VCTK-Corpus</p>
-            </td>
-          </tr>
-          <tr>
-            <td>[00:00:01 - 00:00:04]: "Oh, lovely. Where's the wedding going to be?" (Gender:Male, Emotion:
-              happiness, Action: question, Duration: 4s)</td>
-            <td>From the audio, I can hear a male speaker asking a question with a tone of happiness, specifically the
-              words: "Oh, lovely. Where's the wedding going to be?"</td>
-            <td>
-              <audio controls>
-                <source src="assets/audios/4_0_d47.wav">
-              </audio>
-              <p>Dailytalk</p>
-            </td>
-          </tr>
-          <tr>
-            <td>[00:00:01 - 00:00:07]: "A new pride taught me mine ego, and that teach I unto men: no longer to thrust
-              one's head into the sand of celestial things, but to carry it freely, a terrestrial head, which giveth
-              meaning to the earth!" (Gender:Male, Emotion: cheerful, Pitch: Normal, Volume: Normal, Speaking speed:
-              Fast, Duration: 7s)</td>
-            <td>From the given audio, we can hear a male speaker with a cheerful tone, speaking at a normal pitch and
-              volume. The speaking speed is relatively fast, and the duration is 7 seconds.<br>The audio appears to be a
-              philosophical or inspirational quote, with the speaker using poetic language to convey a message. The text
-              itself is a condensed and somewhat abstract statement, but it seems to be encouraging people to be more
-              grounded and down-to-earth, rather than getting lost in lofty or abstract concepts.</td>
-            <td>
-              <audio controls>
-                <source src="assets/audios/0_000307.wav">
-              </audio>
-              <p>PromptTTS</p>
-            </td>
-          </tr>
-      </table>
-    </div>
-
-
-    <div class="container">
-      <div class="content is-large">
-        <h2 class="title is-3">Stage 2: Model training</h2>
-
-        <p>During the model training phase, we utilize a pre-trained Whisper model to extract speech features and
-          generate text transcriptions from the audio input. These speech features and the text
-          embeddings (from the transcription and chat template) are concatenated before being fed into Llama3. We
-          maintain a
-          consistent template structure to prevent any mismatch. Finally, the model is
-          trained to generate speech descriptions, effectively learning to interpret and articulate the
-          nuances of spoken content based on both acoustic features and textual information.
-        </p>
-
-        <img src="assets/images/model_training.png" alt="">
-      </div>
-    </div>
-
-
-
-
-
-  </section>
-
-</head>
-
-<body>
-
-</body>
-
+    </section>
+  </body>
 </html>
