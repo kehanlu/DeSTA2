@@ -1,0 +1,33 @@
+# License Notice
+
+This model is a derivative work that incorporates multiple components.   
+To use this model, please refer to and comply with the following licenses:
+
+## Foundation Models:
+
+- Whisper (MIT License)  
+  - https://github.com/openai/whisper/blob/main/LICENSE  
+- Llama3-8b-Instruct  
+  - https://www.llama.com/llama3/license/
+
+## Datasets:
+
+- AccentDB (CC BY-NC 4.0)  
+  - https://accentdb.org/  
+- DailyTalk (CC BY-SA 4.0)  
+  - https://github.com/keonlee9420/DailyTalk  
+- IEMOCAP  
+  - https://sail.usc.edu/iemocap/Data\_Release\_Form\_IEMOCAP.pdf  
+- VoxCeleb (CC BY 4.0)  
+  - https://mm.kaist.ac.kr/datasets/voxceleb/\#license  
+- VCTK (CC BY 4.0)  
+  - https://huggingface.co/datasets/CSTR-Edinburgh/vctk  
+- PromptTTS (Azure AI Services)  
+  - https://azure.microsoft.com/en-us/products/ai-services/ai-speech/\#overview  
+- Librispeech(CC BY 4.0)  
+  - [https://www.openslr.org/12](https://www.openslr.org/12)  
+- LJSpeech  
+  - https://keithito.com/LJ-Speech-Dataset/  
+- Musan (CC BY 4.0)
+
+Please refer to each original license for complete terms and conditions.
