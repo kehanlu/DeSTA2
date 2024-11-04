@@ -17,13 +17,13 @@ To use this model, please refer to and comply with the following licenses:
 - DailyTalk (CC BY-SA 4.0)  
   - https://github.com/keonlee9420/DailyTalk  
 - IEMOCAP  
-  - https://sail.usc.edu/iemocap/Data\_Release\_Form\_IEMOCAP.pdf  
+  - https://sail.usc.edu/iemocap/Data_Release_Form_IEMOCAP.pdf  
 - VoxCeleb (CC BY 4.0)  
   - https://mm.kaist.ac.kr/datasets/voxceleb/\#license  
 - VCTK (CC BY 4.0)  
   - https://huggingface.co/datasets/CSTR-Edinburgh/vctk  
 - PromptTTS (Azure AI Services)  
-  - https://azure.microsoft.com/en-us/products/ai-services/ai-speech/\#overview  
+  - https://azure.microsoft.com/en-us/products/ai-services/ai-speech/#overview
 - Librispeech(CC BY 4.0)  
   - [https://www.openslr.org/12](https://www.openslr.org/12)  
 - LJSpeech  
