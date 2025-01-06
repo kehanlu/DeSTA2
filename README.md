@@ -10,7 +10,8 @@ This paper introduces DeSTA2, a novel approach for developing instruction-follow
 
 
 ## ✨ News
-
+- 2024/01/05: The training code can be found at [this branch](https://github.com/kehanlu/Nemo/tree/icassp/examples/desta)
+- 2024/12/21: DeSTA2 is accepted to ICASSP 2025!
 - 2024/10/10: We release DeSTA2-8B-beta model. See [🤗 Model](https://huggingface.co/DeSTA-ntu/DeSTA2-8B-beta) for details.
 - 2024/10/09: We release the dataset(speech captions). See [🤗 Dataset](https://huggingface.co/datasets/DeSTA-ntu/DeSTA2-Llama3-8B-Instruct) for details.
 - 2024/10/01: DeSTA2 paper is now available on arXiv. [📑 Paper](https://arxiv.org/pdf/2409.20007)
