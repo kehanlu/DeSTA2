@@ -229,6 +229,8 @@ class DestaModel(PreTrainedModel):
                 audio_positions.append(i-len(audio_positions))
             else:
                 new_tokens.append(token)
+        assert len(audio_positions) > 0, "No audio placeholder found in the message"
+        print(audio_positions)
 
         text = self.tokenizer.convert_tokens_to_string(new_tokens)
         return self.tokenizer(text, return_tensors="pt", add_special_tokens=False), audio_positions
@@ -264,7 +266,7 @@ class DestaModel(PreTrainedModel):
 
         transcriptions, audio_features = self.speech_perception.generate(input_features)
         
-        inputs, audio_positions = self.process_text_multiple_audios(message_string=message_string, audio_tags=audio_tags, transcriptions=transcriptions, audio_template=audio_template)
+        inputs, audio_positions = self.process_text_multiple_audios(message_string=message_string, audio_tags=audio_tags, transcriptions=transcriptions, audio_template=audio_template, audio_placeholder=audio_placeholder)
         
         inputs_embeds, attention_mask = self.prepare_llm_input_multiple_audios(
             input_ids=inputs.input_ids, 
