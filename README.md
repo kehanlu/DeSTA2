@@ -1,3 +1,6 @@
+> [!important]
+> 🚀🚀 Our latest model **DeSTA2.5-Audio** is out! ➡️➡️ [📑 Paper](https://arxiv.org/abs/2507.02768) | [👩‍💻 Github](https://github.com/kehanlu/DeSTA2.5-Audio)
+
 # DeSTA2
 
 [📑 Paper](https://arxiv.org/pdf/2409.20007) | [🌐 Website](https://kehanlu.github.io/DeSTA2/) | [👩‍💻 Github](https://github.com/kehanlu/DeSTA2) | [🤗 Model](https://huggingface.co/DeSTA-ntu/DeSTA2-8B-beta) | [🤗 Dataset](https://huggingface.co/datasets/DeSTA-ntu/DeSTA2-Llama3-8B-Instruct)
@@ -15,8 +18,9 @@ This paper introduces DeSTA2, a novel approach for developing instruction-follow
 https://github.com/user-attachments/assets/20adfd47-1259-4cdd-9602-306d0d29711b
 
 ## ✨ News
-- 2024/01/06: Gradio demo for DeSTA2. Simply run: `gradio app.py`.
-- 2024/01/05: Training code for DeSTA2. See [this branch](https://github.com/kehanlu/Nemo/tree/icassp/examples/desta)
+- 2025/07/03: 🚀🚀 DeSTA2.5-Audio is out! Check it out: [Github: DeSTA2.5-Audio](https://github.com/kehanlu/DeSTA2.5-Audio)
+- 2025/01/06: Gradio demo for DeSTA2. Simply run: `gradio app.py`.
+- 2025/01/05: Training code for DeSTA2. See [this branch](https://github.com/kehanlu/Nemo/tree/icassp/examples/desta)
 - 2024/12/21: DeSTA2 is accepted to ICASSP 2025!
 - 2024/10/10: We release DeSTA2-8B-beta model. See [🤗 Model](https://huggingface.co/DeSTA-ntu/DeSTA2-8B-beta) for details.
 - 2024/10/09: We release the dataset(speech captions). See [🤗 Dataset](https://huggingface.co/datasets/DeSTA-ntu/DeSTA2-Llama3-8B-Instruct) for details.
